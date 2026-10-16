@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Portfolio</title>
+  <link href="styl.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="column middle">
+    <div class="header">
+      <h1>ZACHO</h1>
+      <div class="pages">
+        <a href="index.html">Index</a>        
+        <a href="favourites.html">Favourites</a>
+        <a href="" onclick="audio.play()" id="targetLink">Disappearing link</a>
+        <audio id="clickSound" src="https://github.com/Zarthurian/Zarthurian.github.io/blob/main/goofy%20ahh%20laugh%20sfx2.wav" preload="auto"></audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const targetLink = document.getElementById("targetLink");
+    const sound = document.getElementById("clickSound");
+
+    // Ensure audio loads properly
+    sound.addEventListener("error", () => {
+        console.error("Sound file could not be loaded.");
+    });
+
+    targetLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Stop navigation
+
+        // Play sound
+        try {
+            sound.currentTime = 0; // Reset to start
+            sound.play().catch(err => console.warn("Audio play blocked:", err));
+        } catch (err) {
+            console.error("Error playing sound:", err);
+        }
+
+        // Remove link from DOM
+        targetLink.remove();
+
+        console.log("Target link clicked and removed.");
+    });
+});
+</script>
+      </div>
+    </div>
+    <h2>ZACHO</h2>
+    <p>Zacho is a virtual AI assistant designed to help you with ANY queries regarding me and what I do.</p>
+    <div id="AI">
+      <div id="title">ZACHO AI CHATBOT:</div>
+        <div id="chatbox"></div>
+        <input type="text" id="user-input" placeholder="Ask me ANYTHING!">
+        <button id="send-button">Send</button>
+    </div>
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>
