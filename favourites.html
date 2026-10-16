@@ -1,0 +1,71 @@
+favourites
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Portfolio</title>
+  <link href="styl.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="column middle">
+    <div class="header">
+      <h1>Favourites</h1>
+      <div class="pages">
+        <a href="index.html">Index</a>
+        <a href="GPT.html">Zacho</a>
+        <a href="" onclick="audio.play()" id="targetLink">Disappearing link</a>
+        <audio id="clickSound" src="https://github.com/Zarthurian/Zarthurian.github.io/blob/main/goofy%20ahh%20laugh%20sfx2.wav" preload="auto"></audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const targetLink = document.getElementById("targetLink");
+    const sound = document.getElementById("clickSound");
+
+    // Ensure audio loads properly
+    sound.addEventListener("error", () => {
+        console.error("Sound file could not be loaded.");
+    });
+
+    targetLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Stop navigation
+
+        // Play sound
+        try {
+            sound.currentTime = 0; // Reset to start
+            sound.play().catch(err => console.warn("Audio play blocked:", err));
+        } catch (err) {
+            console.error("Error playing sound:", err);
+        }
+
+        // Remove link from DOM
+        targetLink.remove();
+
+        console.log("Target link clicked and removed.");
+    });
+});
+</script>
+      </div>
+    </div>
+    <h2>My favourite programming projects in order of most recent to oldest</h2>
+    <div class="made">
+        <a href="https://zarthurian-productions.itch.io/sprunki-volume-z"><img src="https://img.itch.zone/aW1nLzI5NTQ3MDIyLnBuZw==/315x250%23c/zZNtA8.png" alt="DS" width="240px" height="180"></a><p>De Sprunké<br>(27/08/2026)</p>
+    </div>
+    <br>
+    <div class="made">
+        <a href="https://zarthurian-productions.itch.io/stephensholidaycampremaster"><img src="https://img.itch.zone/aW1nLzI2MjY5MTU2LnBuZw==/315x250%23c/4F4k1X.png" alt="ID" width="240px" height="180"></a><p>Induction Day!<br>(03/22/2026)</p>
+    </div>    
+    <br>
+    <div class="made">
+        <a href="https://zarthurian-productions.itch.io/shc"><img src="https://raw.githubusercontent.com/Zarthurian/Zarthurian.github.io/c8c6071c0fc6e715b794cf39ed24b633f43d104b/Screenshot%202026-10-06%20071614.png" alt="SHC" width="240px" height="180"></a><p>Stephen's Holiday Camp<br>(04/08/2025)</p>
+    </div>
+    <br>
+    <div class="made">
+        <a href="https://www.youtube.com/playlist?list=PLA_ia-dcj-Gk"><img src="https://raw.githubusercontent.com/Zarthurian/Zarthurian.github.io/0a73eaa620992202b6fb9a399c79ea872b8b7693/Screenshot%202026-10-05%20202438.png" alt="V5" width="240px" height="180"></a><p>Mannymatronics<br>(since 06/09/2024)</p>
+    </div>
+
+    For more creations, visit <a href="https://github.com/Zarthurian">this website!</a>
+  </div>
+</body>
+</html>
