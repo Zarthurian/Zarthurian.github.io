@@ -12,13 +12,44 @@
     <div class="header">
       <h1>Index</h1>
       <div class="pages">
-        <a href="creations.html">Creations</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="portfolio.html">Portfolio</a>
+        <a href="favourites.html">Favourites</a>
+        <a href="GPT.html">Zacho</a>
+        <a href="" onclick="audio.play()" id="targetLink">Disappearing link</a>
+        <audio id="clickSound" src="https://github.com/Zarthurian/Zarthurian.github.io/blob/main/goofy%20ahh%20laugh%20sfx2.wav" preload="auto"></audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const targetLink = document.getElementById("targetLink");
+    const sound = document.getElementById("clickSound");
+
+    // Ensure audio loads properly
+    sound.addEventListener("error", () => {
+        console.error("Sound file could not be loaded.");
+    });
+
+    targetLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Stop navigation
+
+        // Play sound
+        try {
+            sound.currentTime = 0; // Reset to start
+            sound.play().catch(err => console.warn("Audio play blocked:", err));
+        } catch (err) {
+            console.error("Error playing sound:", err);
+        }
+
+        // Remove link from DOM
+        targetLink.remove();
+
+        console.log("Target link clicked and removed.");
+    });
+});
+</script>
       </div>
     </div>
     <h2>Who am I?</h2>
-    <p>I started coding when I was 7 years old, and Scratch was the first platform that really made programming feel fun and creative. <br><br> I’ve always been fascinated by how technology works, and Scratch gave me a way to experiment with ideas, build games, and learn the basics of logic and problem‑solving.</p>
+    <p>I’ve always been fascinated with technology. I started coding when I was 7 years old. MY favourite type of project to work on is the type that requires alot of algorithmic thinking. <br><br>This website shows some of the projects I’ve worked on, including Scratch games, my BAFTA YGD submission, and a robotic mallard I built using Micro:bit.</p>
+    <br><p>I started coding when I was 7 years old, and Scratch was the first platform that really made programming feel fun and creative. <br><br> I’ve always been fascinated by how technology works, and Scratch gave me a way to experiment with ideas, build games, and learn the basics of logic and problem‑solving.</p>
   </div>
 </body>
 </html>
